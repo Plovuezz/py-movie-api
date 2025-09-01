@@ -11,7 +11,7 @@ def movies_list(request):
    if request.method == "GET":
         movies = Movie.objects.all()
         serializer = MovieSerializer(movies, many=True)
-        return Response(serializer.data, status=200)
+        return Response(serializer.data, status=status.HTTP_200_OK)
    else:
         serializer = MovieSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
